@@ -1,0 +1,4 @@
+ModelNet40 -> ScanObjectNN   11个重叠类
+多视图写实投影+预训练Clip Zeroshot：44.42%(ViT-B/16)✅
+GPT生成先验3D描述+基于几何先验的动态提示： 48.00%
+软标签蒸馏到随机初始化DGCNN： 60.21%✅

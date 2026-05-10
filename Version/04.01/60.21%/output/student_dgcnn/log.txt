@@ -1,0 +1,11 @@
+
+>>> 正在加载知识蒸馏教师模型... (Weight: output/sfda_teacher_vit/sfda_mlp_epoch_7.pth)
+Loading trainer: SFDA_PointCLIP
+Loading dataset: ModelNet40
+***** Dataset statistics *****
+  Dataset: ModelNet40
+  # classes: 40
+  # train_x: 9,840
+  # val: 2,468
+  # test: 2,468
+Loading evaluator: Classification

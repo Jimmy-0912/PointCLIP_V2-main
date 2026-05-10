@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="c1671ef6-4ca9-485b-a23b-b8a59413f8bf" name="maintenance">
+        <fileTransfer rootFolder="/home/support" accessType="SFTP" host="10.1.19.62" port="20555" sshConfigId="2c3c94e7-be39-41f4-81cd-58bcc41b7de6" sshConfig="support@10.1.19.62:20555 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

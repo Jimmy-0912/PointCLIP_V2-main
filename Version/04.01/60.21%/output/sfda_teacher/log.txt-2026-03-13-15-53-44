@@ -1,0 +1,116 @@
+Loading trainer: SFDA_PointCLIP
+Loading dataset: ModelNet40
+***** Dataset statistics *****
+  Dataset: ModelNet40
+  # classes: 40
+  # train_x: 9,840
+  # val: 2,468
+  # test: 2,468
+Loading CLIP backbone: RN50
+Loading evaluator: Classification
+>>> 开始进入原生 SFDA 训练循环 (已开启 FP32 防溢出 + 微批次显存保护)...
+Epoch 1 finished. Avg Loss: -1.3010
+Do evaluation on test set
+=> result
+* total: 2,468
+* correct: 101.0
+* accuracy: 4.09%
+* error: 95.91%
+Epoch 2 finished. Avg Loss: -1.3242
+Do evaluation on test set
+=> result
+* total: 2,468
+* correct: 126.0
+* accuracy: 5.11%
+* error: 94.89%
+Epoch 3 finished. Avg Loss: -1.3264
+Do evaluation on test set
+=> result
+* total: 2,468
+* correct: 130.0
+* accuracy: 5.27%
+* error: 94.73%
+Epoch 4 finished. Avg Loss: -1.3342
+Do evaluation on test set
+=> result
+* total: 2,468
+* correct: 118.0
+* accuracy: 4.78%
+* error: 95.22%
+Epoch 5 finished. Avg Loss: -1.3453
+Do evaluation on test set
+=> result
+* total: 2,468
+* correct: 157.0
+* accuracy: 6.36%
+* error: 93.64%
+Epoch 6 finished. Avg Loss: -1.3357
+Do evaluation on test set
+=> result
+* total: 2,468
+* correct: 124.0
+* accuracy: 5.02%
+* error: 94.98%
+Epoch 7 finished. Avg Loss: -1.3490
+Do evaluation on test set
+=> result
+* total: 2,468
+* correct: 144.0
+* accuracy: 5.83%
+* error: 94.17%
+Epoch 8 finished. Avg Loss: -1.3533
+Do evaluation on test set
+=> result
+* total: 2,468
+* correct: 135.0
+* accuracy: 5.47%
+* error: 94.53%
+Epoch 9 finished. Avg Loss: -1.3505
+Do evaluation on test set
+=> result
+* total: 2,468
+* correct: 127.0
+* accuracy: 5.15%
+* error: 94.85%
+Epoch 10 finished. Avg Loss: -1.3588
+Do evaluation on test set
+=> result
+* total: 2,468
+* correct: 102.0
+* accuracy: 4.13%
+* error: 95.87%
+Epoch 11 finished. Avg Loss: -1.3594
+Do evaluation on test set
+=> result
+* total: 2,468
+* correct: 85.0
+* accuracy: 3.44%
+* error: 96.56%
+Epoch 12 finished. Avg Loss: -1.3620
+Do evaluation on test set
+=> result
+* total: 2,468
+* correct: 98.0
+* accuracy: 3.97%
+* error: 96.03%
+Epoch 13 finished. Avg Loss: -1.3664
+Do evaluation on test set
+=> result
+* total: 2,468
+* correct: 95.0
+* accuracy: 3.85%
+* error: 96.15%
+Epoch 14 finished. Avg Loss: -1.3655
+Do evaluation on test set
+=> result
+* total: 2,468
+* correct: 93.0
+* accuracy: 3.77%
+* error: 96.23%
+Epoch 15 finished. Avg Loss: -1.3652
+Do evaluation on test set
+=> result
+* total: 2,468
+* correct: 91.0
+* accuracy: 3.69%
+* error: 96.31%
