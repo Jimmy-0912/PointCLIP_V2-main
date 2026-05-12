@@ -1,3 +1,0 @@
-DATASET:
-  NAME: "PointDA"
-  ROOT: "datasets/PointDA_data_ply/shapenet"

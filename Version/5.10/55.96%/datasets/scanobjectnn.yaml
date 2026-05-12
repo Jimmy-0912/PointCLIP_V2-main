@@ -1,3 +1,0 @@
-DATASET:
-  NAME: "ScanObjectNN"
-  ROOT: "datasets/scanobjectnn"
