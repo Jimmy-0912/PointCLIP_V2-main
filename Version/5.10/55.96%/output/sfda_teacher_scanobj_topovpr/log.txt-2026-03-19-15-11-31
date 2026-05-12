@@ -1,0 +1,8 @@
+Loading trainer: SFDA_PointCLIP
+Loading dataset: ScanObjectNN
+***** Dataset statistics *****
+  Dataset: ScanObjectNN
+  # classes: 15
+  # train_x: 2,309
+  # val: 581
+  # test: 581
