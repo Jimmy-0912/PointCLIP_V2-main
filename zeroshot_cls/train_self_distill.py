@@ -205,6 +205,7 @@ def main():
                 total_correct += accuracy(logits, label)[0]
                 total_samples += pc.shape[0]
 
+
         curr_acc = (total_correct / total_samples) * 100
         print(f"=> 3D Student Target Accuracy: {curr_acc:.2f}%")
 
