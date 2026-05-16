@@ -7,9 +7,20 @@ The V1 version of [PointCLIP](https://openaccess.thecvf.com/content/CVPR2022/pap
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/pointclip-v2-adapting-clip-for-powerful-3d/zero-shot-transfer-3d-point-cloud-2)](https://paperswithcode.com/sota/zero-shot-transfer-3d-point-cloud-2?p=pointclip-v2-adapting-clip-for-powerful-3d)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/pointclip-v2-adapting-clip-for-powerful-3d/training-free-3d-point-cloud-classification-1)](https://paperswithcode.com/sota/training-free-3d-point-cloud-classification-1?p=pointclip-v2-adapting-clip-for-powerful-3d)
 
-## News
-* We release the code for zero-shot 3D classification and part segmentation 🔥.
-* Check our latest 3D works in **CVPR 2023** 🚀: [Point-NN](https://github.com/ZrrSkywalker/Point-NN) for non-parametric 3D analysis, and [I2P-MAE](https://github.com/ZrrSkywalker/I2P-MAE) for 2D-guided 3D pre-training.
+## Environment
+* conda create -n pointclip python=3.8 -y
+* conda activate pointclip
+* pip install torch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 --index-url https://download.pytorch.org/whl/cu118
+* pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+* conda install pytorch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 pytorch-cuda=11.8 -c pytorch -c nvidia -y
+
+
+* cd QSL/PointCLIP_V2-main/zeroshot_cls
+* pip install -r requirements.txt
+* pip install torch-scatter -f https://data.pyg.org/whl/torch-2.0.1+cu118.html
+* pip install open3d
+* cd Dassl3D
+* pip install -e .
 
 ## Introduction
 PointCLIP V2 is a powerful 3D open-world learner, which improves the performance of PointCLIP with significant margins. V2 utilizes a realistic shape projection module for depth map generation, and adopts the LLM-assisted 3D prompt to align visual and language representations. Besides classification, PointCLIP V2 also conducts zero-shot part segmentation and 3D object detection.

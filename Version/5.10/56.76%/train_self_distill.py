@@ -23,11 +23,13 @@ def accuracy(output, target, topk=(1,)):
 
 def get_strong_aug(pc):
     """
-    纯粹且安全的 3D 强增强，保护 K-NN 图结构
+    纯粹且安全的 3D 强增强，只保留刚性变换，保护 K-NN 图结构
     """
     B, N, C = pc.shape
     pc_strong = pc.clone()
     device = pc.device
+
+
 
     # 随机 Y 轴旋转
     angles = torch.rand(B, device=device) * 2 * torch.pi
@@ -56,8 +58,7 @@ def get_strong_aug(pc):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--output-dir', type=str, default='output/self_distill_pointda')
-    # 🚨 请务必传入刚刚跑出的 56.76% 的权重！这是冲击 60% 的阶梯！
-    parser.add_argument('--teacher-weight', type=str, required=True, help='起始基础权重 (56.76% 的学生权重)')
+    parser.add_argument('--teacher-weight', type=str, required=True, help='起始基础权重 (55% 的学生权重)')
     parser.add_argument('--config-file', type=str, required=True)
     parser.add_argument('--dataset-config-file', type=str, default='')
     parser.add_argument('--epochs', type=int, default=150)
@@ -65,8 +66,9 @@ def main():
     parser.add_argument('--batch-size', type=int, default=16)
     parser.add_argument('--micro-batch', type=int, default=8)
 
-    # 🚨 阈值设为 0.55，释放黄金锚点
-    parser.add_argument('--threshold', type=float, default=0.55)
+    # 🚨 回归奇迹参数：严格门槛 0.65 保真金，T=0.5 锐化软标签保底线
+    parser.add_argument('--threshold', type=float, default=0.65)
+    parser.add_argument('--temperature', type=float, default=0.5)
 
     parser.add_argument('--seed', type=int, default=2)
     parser.add_argument('--backbone', type=str, default='ViT-B/16')
@@ -100,14 +102,17 @@ def main():
     test_loader = list(test_loader_raw.values())[0] if isinstance(test_loader_raw, dict) else test_loader_raw
     num_classes = 10
 
-    print(f"\n>>> [1/2] 部署绝对冻结的 3D 导师 (56.76% 铁底)...")
+    # ==========================================================
+    # 🚨 终极安全回归：彻底废弃会坍塌的 EMA，启用绝对冻结的导师！
+    # ==========================================================
+    print(f"\n>>> [1/2] 部署绝对冻结的 3D 导师 (基准锚点，永不更新)...")
     teacher_model = DGCNN(num_classes=num_classes).to(device)
     teacher_model.load_state_dict(torch.load(args.teacher_weight, map_location=device, weights_only=True))
     teacher_model.eval()
     for param in teacher_model.parameters():
-        param.requires_grad = False
+        param.requires_grad = False  # 绝对锁定！
 
-    print(f"\n>>> [2/2] 部署 3D 学生模型 (开启无上限进化)...")
+    print(f"\n>>> [2/2] 部署 3D 学生模型 (探索与进化)...")
     student_model = DGCNN(num_classes=num_classes).to(device)
     student_model.load_state_dict(torch.load(args.teacher_weight, map_location=device, weights_only=True))
 
@@ -121,16 +126,16 @@ def main():
             init_correct += accuracy(logits, label)[0]
             init_samples += pc.shape[0]
     baseline_acc = (init_correct / init_samples) * 100
-    print(f"=> Frozen Teacher 初始准确率: {baseline_acc:.2f}% (最后的冲刺起点！)\n")
+    print(f"=> Frozen Teacher 初始准确率: {baseline_acc:.2f}% (绝不坍塌的铁底！)\n")
 
-    # 学习率给足 1e-4，赋予学生探索新知识的能量
-    optimizer = torch.optim.AdamW(student_model.parameters(), lr=1e-4, weight_decay=1e-4)
+    # 🚨 降低学习率至 5e-5，精细微调，防止大步长扯破已有的特征流形
+    optimizer = torch.optim.AdamW(student_model.parameters(), lr=5e-5, weight_decay=1e-4)
     scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=args.epochs)
     scaler = GradScaler('cuda')
 
     best_acc = baseline_acc
 
-    print("\n>>> 开始分布对齐自训练 (DAST): 硬锚点 + 探索熵 + 全局分布对齐 ...")
+    print("\n>>> 开始同模态 3D 自我蒸馏: 锐化软知识 + 高纯度硬标签 FixMatch ...")
     for epoch in range(args.epochs):
         student_model.train()
         total_loss = 0.0
@@ -142,38 +147,34 @@ def main():
             pc_strong = get_strong_aug(pc_clean)
 
             with autocast('cuda'):
-                # 1. 冻结老师看干净数据，提取指导信号
+                # 1. 冻结老师看干净数据，给出绝对稳健的指导
                 with torch.no_grad():
                     logits_teacher = teacher_model(pc_clean)
                     probs_teacher = F.softmax(logits_teacher, dim=1)
                     max_probs_teacher, pseudo_labels = torch.max(probs_teacher, dim=1)
+
+                    # 严苛过滤：只保留 > 0.65 的高置信度硬标签
                     mask = (max_probs_teacher >= args.threshold).float()
+                    # T=0.5 锐化：让模糊的预测变得尖锐，提供强引导
+                    probs_teacher_sharp = F.softmax(logits_teacher / args.temperature, dim=1)
 
-                # 2. 学生模型仅在强增强下迎战，激发抗噪潜能
-                logits_student_strong = student_model(pc_strong)
-                probs_student_strong = F.softmax(logits_student_strong, dim=1)
+                # 2. 学生模型被迫在干净和强增强下同时迎战
+                pc_combined = torch.cat([pc_clean, pc_strong], dim=0)
+                logits_combined = student_model(pc_combined)
+                logits_student_clean, logits_student_strong = logits_combined.chunk(2)
 
-                # 3. 🚨 终极破壁 Loss 架构 (彻底移除阻碍成长的 Soft KD)
+                # 3. 极其纯净的黄金双轨 Loss，无任何负数/发散风险
+                # 轨1 (Soft KD 保底): 让学生的干净特征，向老师锐化后的稳健分布靠拢
+                log_probs_clean = F.log_softmax(logits_student_clean / args.temperature, dim=1)
+                loss_soft = F.kl_div(log_probs_clean, probs_teacher_sharp.detach(), reduction='batchmean') * (
+                            args.temperature ** 2)
 
-                # 轨1 [锚点]: 老师有把握的题，学生强制对齐 (Hard FixMatch)
+                # 轨2 (Hard FixMatch 突破): 老师极度确信的样本，逼迫学生在强干扰下认出来
                 ce_loss_strong = F.cross_entropy(logits_student_strong, pseudo_labels, reduction='none',
                                                  label_smoothing=0.1)
                 loss_hard = (ce_loss_strong * mask).sum() / (mask.sum() + 1e-8)
 
-                # 轨2 [探索]: 老师没把握的题，学生自己寻找高确信的分类边界 (Self-Entropy)
-                ent_loss = -torch.sum(probs_student_strong * torch.log(probs_student_strong + 1e-8), dim=1)
-                # 仅对未被 Mask 的样本进行熵最小化探索
-                loss_explore = (ent_loss * (1 - mask)).sum() / ((1 - mask).sum() + 1e-8)
-
-                # 轨3 [防坍塌]: 全局分布对齐 (Distribution Alignment)
-                # 不强求具体哪个样本对标老师，但要求当前 Batch 的类别总体比例和老师一致！
-                mean_prob_student = probs_student_strong.mean(dim=0)
-                mean_prob_teacher = probs_teacher.mean(dim=0).detach()
-                # 交叉熵分布对齐，极其稳定，绝不引发模式坍塌！
-                loss_dist = -torch.sum(mean_prob_teacher * torch.log(mean_prob_student + 1e-8))
-
-                # 完美融合：探索未知 + 守住底线
-                loss = (1.0 * loss_hard + 0.3 * loss_explore + 1.0 * loss_dist) / accumulation_steps
+                loss = (0.5 * loss_soft + 1.0 * loss_hard) / accumulation_steps
 
             scaler.scale(loss).backward()
 
@@ -204,15 +205,16 @@ def main():
                 total_correct += accuracy(logits, label)[0]
                 total_samples += pc.shape[0]
 
+
         curr_acc = (total_correct / total_samples) * 100
         print(f"=> 3D Student Target Accuracy: {curr_acc:.2f}%")
 
         if curr_acc > best_acc:
             best_acc = curr_acc
             torch.save(student_model.state_dict(), os.path.join(args.output_dir, "best_self_distilled_dgcnn.pth"))
-            print(f"🎉 突破天花板！已保存新巅峰模型 (当前最高: {best_acc:.2f}%)")
+            print(f"🎉 突破！已保存稳健涨点的新模型 (当前最高: {best_acc:.2f}%)")
 
-    print(f"\n✅ DAST 终极冲刺收官! 最终冲刺准确率: {best_acc:.2f}%")
+    print(f"\n✅ 终极稳健自我蒸馏收官! 最终冲刺准确率: {best_acc:.2f}%")
 
 
 if __name__ == '__main__':

@@ -1,0 +1,11 @@
+Loading trainer: SFDA_PointCLIP
+Loading dataset: ModelNet40
+***** Dataset statistics *****
+  Dataset: ModelNet40
+  # classes: 40
+  # train_x: 9,840
+  # val: 2,468
+  # test: 2,468
+Loading CLIP backbone: RN50
+Loading evaluator: Classification
+>>> 开始进入原生 SFDA 训练循环 (已开启 FP32 防溢出保护)...
