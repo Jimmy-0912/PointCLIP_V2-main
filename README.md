@@ -14,7 +14,6 @@ The V1 version of [PointCLIP](https://openaccess.thecvf.com/content/CVPR2022/pap
 * pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 * conda install pytorch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 pytorch-cuda=11.8 -c pytorch -c nvidia -y
 
-
 * cd QSL/PointCLIP_V2-main/zeroshot_cls
 * pip install -r requirements.txt
 * pip install torch-scatter -f https://data.pyg.org/whl/torch-2.0.1+cu118.html
