@@ -1,0 +1,161 @@
+Loading trainer: SFDA_PointCLIP
+Loading dataset: ScanObjectNN
+***** Dataset statistics *****
+  Dataset: ScanObjectNN
+  # classes: 11
+  # train_x: 1,915
+  # val: 475
+  # test: 475
+
+>>> [对齐成功] 已成功抽取并重排 11 类的 GPT-3 动态提示词！
+Loading evaluator: Classification
+
+>>> [Sanity Check] ViT-B/16 初始 11 类 Zero-Shot 性能摸底...
+Do evaluation on test set
+=> result
+* total: 475
+* correct: 211.0
+* accuracy: 44.42%
+* error: 55.58%
+
+>>> 开始论文终极方案：基于 MCF 边界过滤的 Topo-VPR...
+Epoch 1 结束. Avg Loss: -4.1276, 绝对纯净锚点比例: 44.8%
+Do evaluation on test set
+=> result
+* total: 475
+* correct: 228.0
+* accuracy: 48.00%
+* error: 52.00%
+Epoch 2 结束. Avg Loss: -4.7505, 绝对纯净锚点比例: 45.2%
+Do evaluation on test set
+=> result
+* total: 475
+* correct: 223.0
+* accuracy: 46.95%
+* error: 53.05%
+Epoch 3 结束. Avg Loss: -4.7098, 绝对纯净锚点比例: 44.9%
+Do evaluation on test set
+=> result
+* total: 475
+* correct: 220.0
+* accuracy: 46.32%
+* error: 53.68%
+Epoch 4 结束. Avg Loss: -4.7174, 绝对纯净锚点比例: 44.8%
+Do evaluation on test set
+=> result
+* total: 475
+* correct: 219.0
+* accuracy: 46.11%
+* error: 53.89%
+Epoch 5 结束. Avg Loss: -4.7080, 绝对纯净锚点比例: 45.0%
+Do evaluation on test set
+=> result
+* total: 475
+* correct: 225.0
+* accuracy: 47.37%
+* error: 52.63%
+Epoch 6 结束. Avg Loss: -4.7754, 绝对纯净锚点比例: 45.0%
+Do evaluation on test set
+=> result
+* total: 475
+* correct: 217.0
+* accuracy: 45.68%
+* error: 54.32%
+Epoch 7 结束. Avg Loss: -4.7662, 绝对纯净锚点比例: 45.0%
+Do evaluation on test set
+=> result
+* total: 475
+* correct: 219.0
+* accuracy: 46.11%
+* error: 53.89%
+Epoch 8 结束. Avg Loss: -4.8077, 绝对纯净锚点比例: 45.2%
+Do evaluation on test set
+=> result
+* total: 475
+* correct: 215.0
+* accuracy: 45.26%
+* error: 54.74%
+Epoch 9 结束. Avg Loss: -4.7420, 绝对纯净锚点比例: 44.9%
+Do evaluation on test set
+=> result
+* total: 475
+* correct: 216.0
+* accuracy: 45.47%
+* error: 54.53%
+Epoch 10 结束. Avg Loss: -4.7320, 绝对纯净锚点比例: 45.1%
+Do evaluation on test set
+=> result
+* total: 475
+* correct: 219.0
+* accuracy: 46.11%
+* error: 53.89%
+Epoch 11 结束. Avg Loss: -4.8275, 绝对纯净锚点比例: 45.0%
+Do evaluation on test set
+=> result
+* total: 475
+* correct: 218.0
+* accuracy: 45.89%
+* error: 54.11%
+Epoch 12 结束. Avg Loss: -4.7926, 绝对纯净锚点比例: 45.1%
+Do evaluation on test set
+=> result
+* total: 475
+* correct: 220.0
+* accuracy: 46.32%
+* error: 53.68%
+Epoch 13 结束. Avg Loss: -4.8251, 绝对纯净锚点比例: 45.0%
+Do evaluation on test set
+=> result
+* total: 475
+* correct: 218.0
+* accuracy: 45.89%
+* error: 54.11%
+Epoch 14 结束. Avg Loss: -4.8041, 绝对纯净锚点比例: 45.0%
+Do evaluation on test set
+=> result
+* total: 475
+* correct: 220.0
+* accuracy: 46.32%
+* error: 53.68%
+Epoch 15 结束. Avg Loss: -4.8357, 绝对纯净锚点比例: 44.9%
+Do evaluation on test set
+=> result
+* total: 475
+* correct: 221.0
+* accuracy: 46.53%
+* error: 53.47%
+Epoch 16 结束. Avg Loss: -4.7365, 绝对纯净锚点比例: 45.2%
+Do evaluation on test set
+=> result
+* total: 475
+* correct: 221.0
+* accuracy: 46.53%
+* error: 53.47%
+Epoch 17 结束. Avg Loss: -4.8119, 绝对纯净锚点比例: 45.2%
+Do evaluation on test set
+=> result
+* total: 475
+* correct: 221.0
+* accuracy: 46.53%
+* error: 53.47%
+Epoch 18 结束. Avg Loss: -4.8004, 绝对纯净锚点比例: 45.1%
+Do evaluation on test set
+=> result
+* total: 475
+* correct: 220.0
+* accuracy: 46.32%
+* error: 53.68%
+Epoch 19 结束. Avg Loss: -4.8467, 绝对纯净锚点比例: 45.0%
+Do evaluation on test set
+=> result
+* total: 475
+* correct: 221.0
+* accuracy: 46.53%
+* error: 53.47%
+Epoch 20 结束. Avg Loss: -4.8524, 绝对纯净锚点比例: 45.0%
+Do evaluation on test set
+=> result
+* total: 475
+* correct: 220.0
+* accuracy: 46.32%
+* error: 53.68%

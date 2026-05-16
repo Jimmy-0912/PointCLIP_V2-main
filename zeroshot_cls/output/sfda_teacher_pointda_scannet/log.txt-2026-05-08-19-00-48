@@ -1,0 +1,198 @@
+Loading trainer: SFDA_PointCLIP
+Loading dataset: PointDA
+
+>>> 正在加载 PointDA-10 数据集 (PLY格式)... 路径: datasets/PointDA_data_ply/scannet
+***** Dataset statistics *****
+  Dataset: PointDA
+  # classes: 10
+  # train_x: 6,110
+  # val: 1,769
+  # test: 1,769
+
+>>> [Oracle 初始化] 正在使用 3 种混合模板生成强化文本基准...
+Loading evaluator: Classification
+
+>>> [Oracle Check] 混合提示词下初始 10 类 Zero-Shot 性能摸底...
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 807.0
+* accuracy: 45.62%
+* error: 54.38%
+
+>>> 开始论文终极形态：Oracle-Guided Topological View Routing (神谕引导 TVR)...
+Epoch 1 结束. Avg Loss: 1.8554, Oracle 高自信比例: 3.9%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 821.0
+* accuracy: 46.41%
+* error: 53.59%
+Epoch 2 结束. Avg Loss: 1.8185, Oracle 高自信比例: 3.9%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 825.0
+* accuracy: 46.64%
+* error: 53.36%
+Epoch 3 结束. Avg Loss: 1.8055, Oracle 高自信比例: 4.0%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 824.0
+* accuracy: 46.58%
+* error: 53.42%
+Epoch 4 结束. Avg Loss: 1.8056, Oracle 高自信比例: 3.9%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 829.0
+* accuracy: 46.86%
+* error: 53.14%
+Epoch 5 结束. Avg Loss: 1.7888, Oracle 高自信比例: 3.9%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 826.0
+* accuracy: 46.69%
+* error: 53.31%
+Epoch 6 结束. Avg Loss: 1.7960, Oracle 高自信比例: 3.9%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 827.0
+* accuracy: 46.75%
+* error: 53.25%
+Epoch 7 结束. Avg Loss: 1.7947, Oracle 高自信比例: 3.9%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 821.0
+* accuracy: 46.41%
+* error: 53.59%
+Epoch 8 结束. Avg Loss: 1.7877, Oracle 高自信比例: 3.9%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 811.0
+* accuracy: 45.85%
+* error: 54.15%
+Epoch 9 结束. Avg Loss: 1.7870, Oracle 高自信比例: 3.9%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 800.0
+* accuracy: 45.22%
+* error: 54.78%
+Epoch 10 结束. Avg Loss: 1.7814, Oracle 高自信比例: 4.0%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 789.0
+* accuracy: 44.60%
+* error: 55.40%
+Epoch 11 结束. Avg Loss: 1.7746, Oracle 高自信比例: 4.0%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 770.0
+* accuracy: 43.53%
+* error: 56.47%
+Epoch 12 结束. Avg Loss: 1.7743, Oracle 高自信比例: 3.9%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 765.0
+* accuracy: 43.24%
+* error: 56.76%
+Epoch 13 结束. Avg Loss: 1.7764, Oracle 高自信比例: 3.9%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 752.0
+* accuracy: 42.51%
+* error: 57.49%
+Epoch 14 结束. Avg Loss: 1.7803, Oracle 高自信比例: 3.9%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 741.0
+* accuracy: 41.89%
+* error: 58.11%
+Epoch 15 结束. Avg Loss: 1.7747, Oracle 高自信比例: 4.0%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 732.0
+* accuracy: 41.38%
+* error: 58.62%
+Epoch 16 结束. Avg Loss: 1.7790, Oracle 高自信比例: 4.0%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 728.0
+* accuracy: 41.15%
+* error: 58.85%
+Epoch 17 结束. Avg Loss: 1.7733, Oracle 高自信比例: 4.0%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 728.0
+* accuracy: 41.15%
+* error: 58.85%
+Epoch 18 结束. Avg Loss: 1.7773, Oracle 高自信比例: 3.9%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 722.0
+* accuracy: 40.81%
+* error: 59.19%
+Epoch 19 结束. Avg Loss: 1.7721, Oracle 高自信比例: 3.9%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 718.0
+* accuracy: 40.59%
+* error: 59.41%
+Epoch 20 结束. Avg Loss: 1.7745, Oracle 高自信比例: 4.0%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 717.0
+* accuracy: 40.53%
+* error: 59.47%
+Epoch 21 结束. Avg Loss: 1.7722, Oracle 高自信比例: 3.9%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 722.0
+* accuracy: 40.81%
+* error: 59.19%
+Epoch 22 结束. Avg Loss: 1.7763, Oracle 高自信比例: 3.9%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 709.0
+* accuracy: 40.08%
+* error: 59.92%
+Epoch 23 结束. Avg Loss: 1.7821, Oracle 高自信比例: 3.9%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 711.0
+* accuracy: 40.19%
+* error: 59.81%
+Epoch 24 结束. Avg Loss: 1.7777, Oracle 高自信比例: 3.9%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 715.0
+* accuracy: 40.42%
+* error: 59.58%
+Epoch 25 结束. Avg Loss: 1.7665, Oracle 高自信比例: 3.9%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 716.0
+* accuracy: 40.47%
+* error: 59.53%

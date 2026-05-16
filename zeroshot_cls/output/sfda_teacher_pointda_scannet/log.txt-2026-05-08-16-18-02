@@ -1,0 +1,88 @@
+Loading trainer: SFDA_PointCLIP
+Loading dataset: PointDA
+
+>>> 正在加载 PointDA-10 数据集 (PLY格式)... 路径: datasets/PointDA_data_ply/scannet
+***** Dataset statistics *****
+  Dataset: PointDA
+  # classes: 10
+  # train_x: 6,110
+  # val: 1,769
+  # test: 1,769
+
+>>> [Prompt 初始化] 已为 10 个类别生成标准深度图提示词！
+Loading evaluator: Classification
+
+>>> [Sanity Check] ViT-B/16 初始 10 类 Zero-Shot 性能摸底...
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 661.0
+* accuracy: 37.37%
+* error: 62.63%
+
+>>> 开始论文核心方案：基于绝对余弦 Margin 过滤的 Topo-VPR...
+Epoch 1 结束. Avg Loss: 8.9592, 绝对纯净锚点比例: 37.6%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 638.0
+* accuracy: 36.07%
+* error: 63.93%
+Epoch 2 结束. Avg Loss: 6.8003, 绝对纯净锚点比例: 37.6%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 647.0
+* accuracy: 36.57%
+* error: 63.43%
+Epoch 3 结束. Avg Loss: 6.3326, 绝对纯净锚点比例: 37.6%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 617.0
+* accuracy: 34.88%
+* error: 65.12%
+Epoch 4 结束. Avg Loss: 6.2138, 绝对纯净锚点比例: 37.7%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 652.0
+* accuracy: 36.86%
+* error: 63.14%
+Epoch 5 结束. Avg Loss: 6.0335, 绝对纯净锚点比例: 37.6%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 632.0
+* accuracy: 35.73%
+* error: 64.27%
+Epoch 6 结束. Avg Loss: 5.8792, 绝对纯净锚点比例: 37.6%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 616.0
+* accuracy: 34.82%
+* error: 65.18%
+Epoch 7 结束. Avg Loss: 5.8097, 绝对纯净锚点比例: 37.6%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 619.0
+* accuracy: 34.99%
+* error: 65.01%
+Epoch 8 结束. Avg Loss: 5.6318, 绝对纯净锚点比例: 37.7%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 645.0
+* accuracy: 36.46%
+* error: 63.54%
+Epoch 9 结束. Avg Loss: 5.6061, 绝对纯净锚点比例: 37.7%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 604.0
+* accuracy: 34.14%
+* error: 65.86%
+Epoch 10 结束. Avg Loss: 5.5760, 绝对纯净锚点比例: 37.6%
+Do evaluation on test set

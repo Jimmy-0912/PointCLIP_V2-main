@@ -1,0 +1,128 @@
+Loading trainer: SFDA_PointCLIP
+Loading dataset: PointDA
+
+>>> 正在加载 PointDA-10 数据集 (PLY格式)... 路径: datasets/PointDA_data_ply/scannet
+***** Dataset statistics *****
+  Dataset: PointDA
+  # classes: 10
+  # train_x: 6,110
+  # val: 1,769
+  # test: 1,769
+
+>>> [Prompt 初始化] 已为 10 个类别生成标准深度图提示词！
+Loading evaluator: Classification
+
+>>> [Sanity Check] ViT-B/16 初始 10 类 Zero-Shot 性能摸底...
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 661.0
+* accuracy: 37.37%
+* error: 62.63%
+
+>>> 开始论文核心方案：基于 3D 拓扑与 MCF 边界过滤的 Topo-VPR...
+Epoch 1 结束. Avg Loss: -2.9760, 绝对纯净锚点比例: 58.6%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 684.0
+* accuracy: 38.67%
+* error: 61.33%
+Epoch 2 结束. Avg Loss: -3.1183, 绝对纯净锚点比例: 58.5%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 670.0
+* accuracy: 37.87%
+* error: 62.13%
+Epoch 3 结束. Avg Loss: -3.0919, 绝对纯净锚点比例: 58.6%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 688.0
+* accuracy: 38.89%
+* error: 61.11%
+Epoch 4 结束. Avg Loss: -3.1310, 绝对纯净锚点比例: 58.6%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 667.0
+* accuracy: 37.70%
+* error: 62.30%
+Epoch 5 结束. Avg Loss: -3.1569, 绝对纯净锚点比例: 58.6%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 688.0
+* accuracy: 38.89%
+* error: 61.11%
+Epoch 6 结束. Avg Loss: -3.1683, 绝对纯净锚点比例: 58.6%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 682.0
+* accuracy: 38.55%
+* error: 61.45%
+Epoch 7 结束. Avg Loss: -3.1397, 绝对纯净锚点比例: 58.6%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 691.0
+* accuracy: 39.06%
+* error: 60.94%
+Epoch 8 结束. Avg Loss: -3.1627, 绝对纯净锚点比例: 58.7%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 695.0
+* accuracy: 39.29%
+* error: 60.71%
+Epoch 9 结束. Avg Loss: -3.1778, 绝对纯净锚点比例: 58.6%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 689.0
+* accuracy: 38.95%
+* error: 61.05%
+Epoch 10 结束. Avg Loss: -3.2396, 绝对纯净锚点比例: 58.6%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 690.0
+* accuracy: 39.01%
+* error: 60.99%
+Epoch 11 结束. Avg Loss: -3.2022, 绝对纯净锚点比例: 58.5%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 689.0
+* accuracy: 38.95%
+* error: 61.05%
+Epoch 12 结束. Avg Loss: -3.2849, 绝对纯净锚点比例: 58.6%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 673.0
+* accuracy: 38.04%
+* error: 61.96%
+Epoch 13 结束. Avg Loss: -3.1812, 绝对纯净锚点比例: 58.6%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 683.0
+* accuracy: 38.61%
+* error: 61.39%
+Epoch 14 结束. Avg Loss: -3.2236, 绝对纯净锚点比例: 58.6%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 688.0
+* accuracy: 38.89%
+* error: 61.11%
+Epoch 15 结束. Avg Loss: -3.2565, 绝对纯净锚点比例: 58.6%
+Do evaluation on test set
+=> result
+* total: 1,769
+* correct: 687.0
+* accuracy: 38.84%
+* error: 61.16%

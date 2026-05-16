@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="On explicit save action" serverName="support@10.1.19.62:20555 password" remoteFilesAllowedToDisappearOnAutoupload="false" confirmBeforeUploading="false">
+  <component name="PublishConfigData" autoUpload="On explicit save action" remoteFilesAllowedToDisappearOnAutoupload="false" confirmBeforeUploading="false">
     <option name="confirmBeforeUploading" value="false" />
     <serverData>
       <paths name="ldh">
@@ -10,17 +10,17 @@
           </mappings>
         </serverdata>
       </paths>
+      <paths name="ll00008939@10.1.19.62">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/QSL/PointCLIP_V2-main" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
       <paths name="maintenance">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
-      <paths name="support@10.1.19.62:20555 password">
-        <serverdata>
-          <mappings>
-            <mapping deploy="QSL/pointclip" local="$PROJECT_DIR$" />
           </mappings>
         </serverdata>
       </paths>

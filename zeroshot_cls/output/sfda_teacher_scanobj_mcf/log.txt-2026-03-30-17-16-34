@@ -1,0 +1,54 @@
+Loading trainer: SFDA_PointCLIP
+Loading dataset: ScanObjectNN
+***** Dataset statistics *****
+  Dataset: ScanObjectNN
+  # classes: 11
+  # train_x: 1,915
+  # val: 475
+  # test: 475
+Loading evaluator: Classification
+
+>>> [Sanity Check] ViT-B/16 初始 11 类 Zero-Shot 性能摸底...
+Do evaluation on test set
+=> result
+* total: 475
+* correct: 131.0
+* accuracy: 27.58%
+* error: 72.42%
+
+>>> 开始论文终极方案：基于 MCF 边界过滤的 Topo-VPR...
+Epoch 1 结束. Avg Loss: -3.9438, 绝对纯净锚点比例: 50.1%
+Do evaluation on test set
+=> result
+* total: 475
+* correct: 149.0
+* accuracy: 31.37%
+* error: 68.63%
+Epoch 2 结束. Avg Loss: -4.1830, 绝对纯净锚点比例: 49.8%
+Do evaluation on test set
+=> result
+* total: 475
+* correct: 152.0
+* accuracy: 32.00%
+* error: 68.00%
+Epoch 3 结束. Avg Loss: -4.0882, 绝对纯净锚点比例: 49.7%
+Do evaluation on test set
+=> result
+* total: 475
+* correct: 143.0
+* accuracy: 30.11%
+* error: 69.89%
+Epoch 4 结束. Avg Loss: -4.1643, 绝对纯净锚点比例: 49.8%
+Do evaluation on test set
+=> result
+* total: 475
+* correct: 140.0
+* accuracy: 29.47%
+* error: 70.53%
+Epoch 5 结束. Avg Loss: -4.1997, 绝对纯净锚点比例: 50.3%
+Do evaluation on test set
+=> result
+* total: 475
+* correct: 144.0
+* accuracy: 30.32%
+* error: 69.68%

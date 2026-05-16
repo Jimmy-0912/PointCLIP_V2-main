@@ -1,0 +1,36 @@
+
+>>> [1/2] 唤醒 2D VLM 老师模型 (提供跨模态硬标签)...
+Loading trainer: SFDA_PointCLIP
+Loading dataset: PointDA
+
+>>> 正在加载 PointDA-10 数据集 (PLY格式)... 路径: datasets/PointDA_data_ply/scannet
+***** Dataset statistics *****
+  Dataset: PointDA
+  # classes: 10
+  # train_x: 6,110
+  # val: 1,769
+  # test: 1,769
+
+>>> [Oracle 初始化] 正在使用 3 种混合模板生成强化文本基准...
+Loading evaluator: Classification
+
+>>> [2/2] 部署 3D 学生模型 (源域 98% 优等生)...
+>>> 注入源域核心几何知识: output/source_dgcnn_pointda10/dgcnn_source_best.pth
+
+>>> [Baseline] 测试纯源域模型在目标域的初始水准...
+=> Source-Only 初始准确率: 5.03%
+
+
+>>> 开始第一阶段跨模态蒸馏: 纯净伪标签 + FixMatch 强对齐 ...
+
+Epoch 1 结束 -> 测试纯 3D 学生性能...
+=> 3D Student Target Accuracy: 27.13%
+🎉 突破！已保存最佳跨模态学生模型 (当前最高: 27.13%)
+
+Epoch 2 结束 -> 测试纯 3D 学生性能...
+=> 3D Student Target Accuracy: 30.19%
+🎉 突破！已保存最佳跨模态学生模型 (当前最高: 30.19%)
+
+Epoch 3 结束 -> 测试纯 3D 学生性能...
+=> 3D Student Target Accuracy: 31.88%
+🎉 突破！已保存最佳跨模态学生模型 (当前最高: 31.88%)

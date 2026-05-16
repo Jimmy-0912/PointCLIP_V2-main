@@ -1,0 +1,124 @@
+Loading trainer: SFDA_PointCLIP
+Loading dataset: ScanObjectNN
+***** Dataset statistics *****
+  Dataset: ScanObjectNN
+  # classes: 15
+  # train_x: 2,309
+  # val: 581
+  # test: 581
+Loading evaluator: Classification
+
+>>> [Sanity Check] ViT-B/16 初始 Zero-Shot 性能摸底...
+Do evaluation on test set
+=> result
+* total: 581
+* correct: 245.0
+* accuracy: 42.17%
+* error: 57.83%
+
+>>> 开始进入原生 SFDA 训练循环 (动态适应中)...
+Epoch 1 finished. Avg Loss: 0.3902
+Do evaluation on test set
+=> result
+* total: 581
+* correct: 216.0
+* accuracy: 37.18%
+* error: 62.82%
+Epoch 2 finished. Avg Loss: 0.0307
+Do evaluation on test set
+=> result
+* total: 581
+* correct: 232.0
+* accuracy: 39.93%
+* error: 60.07%
+Epoch 3 finished. Avg Loss: -0.0121
+Do evaluation on test set
+=> result
+* total: 581
+* correct: 234.0
+* accuracy: 40.28%
+* error: 59.72%
+Epoch 4 finished. Avg Loss: -0.0689
+Do evaluation on test set
+=> result
+* total: 581
+* correct: 243.0
+* accuracy: 41.82%
+* error: 58.18%
+Epoch 5 finished. Avg Loss: -0.1048
+Do evaluation on test set
+=> result
+* total: 581
+* correct: 239.0
+* accuracy: 41.14%
+* error: 58.86%
+Epoch 6 finished. Avg Loss: -0.1107
+Do evaluation on test set
+=> result
+* total: 581
+* correct: 241.0
+* accuracy: 41.48%
+* error: 58.52%
+Epoch 7 finished. Avg Loss: -0.1247
+Do evaluation on test set
+=> result
+* total: 581
+* correct: 234.0
+* accuracy: 40.28%
+* error: 59.72%
+Epoch 8 finished. Avg Loss: -0.1263
+Do evaluation on test set
+=> result
+* total: 581
+* correct: 236.0
+* accuracy: 40.62%
+* error: 59.38%
+Epoch 9 finished. Avg Loss: -0.1454
+Do evaluation on test set
+=> result
+* total: 581
+* correct: 234.0
+* accuracy: 40.28%
+* error: 59.72%
+Epoch 10 finished. Avg Loss: -0.1570
+Do evaluation on test set
+=> result
+* total: 581
+* correct: 241.0
+* accuracy: 41.48%
+* error: 58.52%
+Epoch 11 finished. Avg Loss: -0.1656
+Do evaluation on test set
+=> result
+* total: 581
+* correct: 239.0
+* accuracy: 41.14%
+* error: 58.86%
+Epoch 12 finished. Avg Loss: -0.1635
+Do evaluation on test set
+=> result
+* total: 581
+* correct: 238.0
+* accuracy: 40.96%
+* error: 59.04%
+Epoch 13 finished. Avg Loss: -0.1672
+Do evaluation on test set
+=> result
+* total: 581
+* correct: 239.0
+* accuracy: 41.14%
+* error: 58.86%
+Epoch 14 finished. Avg Loss: -0.1741
+Do evaluation on test set
+=> result
+* total: 581
+* correct: 239.0
+* accuracy: 41.14%
+* error: 58.86%
+Epoch 15 finished. Avg Loss: -0.1718
+Do evaluation on test set
+=> result
+* total: 581
+* correct: 241.0
+* accuracy: 41.48%
+* error: 58.52%

@@ -3,7 +3,14 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="c1671ef6-4ca9-485b-a23b-b8a59413f8bf" name="maintenance">
-        <fileTransfer rootFolder="/home/support" accessType="SFTP" host="10.1.19.62" port="20555" sshConfigId="2c3c94e7-be39-41f4-81cd-58bcc41b7de6" sshConfig="support@10.1.19.62:20555 password">
+        <fileTransfer rootFolder="/home/support" accessType="SFTP" host="10.1.19.62" port="20846" sshConfigId="2c3c94e7-be39-41f4-81cd-58bcc41b7de6" sshConfig="ll00008939@10.1.19.62:20846 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="47b5e736-9c42-400a-b642-960e6ac2b1e8" name="ll00008939@10.1.19.62">
+        <fileTransfer rootFolder="/home/ll00008939" accessType="SFTP" host="10.1.19.62" port="20846" sshConfigId="2c3c94e7-be39-41f4-81cd-58bcc41b7de6" sshConfig="ll00008939@10.1.19.62:20846 password">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
