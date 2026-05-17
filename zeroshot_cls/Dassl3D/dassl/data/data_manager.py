@@ -47,7 +47,7 @@ def build_data_loader(
         dataset_wrapper(cfg, data_source, is_train=is_train),
         batch_size=batch_size,
         sampler=sampler,
-        num_workers=cfg.DATALOADER.NUM_WORKERS,
+        num_workers=min(cfg.DATALOADER.NUM_WORKERS, 6), # 强制最大限制为 6
         drop_last=is_train and len(data_source) >= batch_size,
         pin_memory=(torch.cuda.is_available() and cfg.USE_CUDA)
     )

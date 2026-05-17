@@ -141,7 +141,7 @@ def main():
             pc_clean = batch["img"].to(device).float()
             pc_strong = get_strong_aug(pc_clean)
 
-            with autocast('cuda'):
+            with torch.autocast(device_type='cuda'):
                 # 1. 冻结老师看干净数据，提取指导信号
                 with torch.no_grad():
                     logits_teacher = teacher_model(pc_clean)
@@ -212,7 +212,7 @@ def main():
             torch.save(student_model.state_dict(), os.path.join(args.output_dir, "best_self_distilled_dgcnn.pth"))
             print(f"🎉 突破天花板！已保存新巅峰模型 (当前最高: {best_acc:.2f}%)")
 
-    print(f"\n✅ DAST 终极冲刺收官! 最终冲刺准确率: {best_acc:.2f}%")
+    print(f"\nDAST 终极冲刺收官! 最终冲刺准确率: {best_acc:.2f}%")
 
 
 if __name__ == '__main__':
