@@ -1,11 +1,9 @@
 # PointCLIP V2: Prompting CLIP and GPT for Powerful 3D Open-world Learning
 
-Official implementation of [PointCLIP V2: Prompting CLIP and GPT for Powerful 3D Open-world Learning](https://arxiv.org/abs/2211.11682).
 
-The V1 version of [PointCLIP](https://openaccess.thecvf.com/content/CVPR2022/papers/Zhang_PointCLIP_Point_Cloud_Understanding_by_CLIP_CVPR_2022_paper.pdf) accepted by CVPR 2022 is open-sourced at [here](https://github.com/ZrrSkywalker/PointCLIP).
 
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/pointclip-v2-adapting-clip-for-powerful-3d/zero-shot-transfer-3d-point-cloud-2)](https://paperswithcode.com/sota/zero-shot-transfer-3d-point-cloud-2?p=pointclip-v2-adapting-clip-for-powerful-3d)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/pointclip-v2-adapting-clip-for-powerful-3d/training-free-3d-point-cloud-classification-1)](https://paperswithcode.com/sota/training-free-3d-point-cloud-classification-1?p=pointclip-v2-adapting-clip-for-powerful-3d)
+## Introduction
+PointCLIP V2 is a powerful 3D open-world learner, which improves the performance of PointCLIP with significant margins. V2 utilizes a realistic shape projection module for depth map generation, and adopts the LLM-assisted 3D prompt to align visual and language representations. Besides classification, PointCLIP V2 also conducts zero-shot part segmentation and 3D object detection.
 
 ## Environment
 * conda create -n pointclip python=3.8 -y
@@ -21,10 +19,6 @@ The V1 version of [PointCLIP](https://openaccess.thecvf.com/content/CVPR2022/pap
 * cd Dassl3D
 * pip install -e .
 
-## Introduction
-PointCLIP V2 is a powerful 3D open-world learner, which improves the performance of PointCLIP with significant margins. V2 utilizes a realistic shape projection module for depth map generation, and adopts the LLM-assisted 3D prompt to align visual and language representations. Besides classification, PointCLIP V2 also conducts zero-shot part segmentation and 3D object detection.
-
-
 <!-- Examples of the synthesized depth map and attention map: -->
 ![Depth and Attention Map](figs/depth_attention_map.png)
 
@@ -37,22 +31,36 @@ PointCLIP V2 is a powerful 3D open-world learner, which improves the performance
 
 Please check the `zeroshot_cls` folder for [zero-shot 3D classification](https://github.com/yangyangyang127/PointCLIP_V2/tree/main/zeroshot_cls), and `zeroshot_seg` folder for [zero-shot part segmentation](https://github.com/yangyangyang127/PointCLIP_V2/tree/main/zeroshot_seg).
 
-## Contributors
-[Xiangyang Zhu](https://github.com/yangyangyang127), [Renrui Zhang](https://github.com/ZrrSkywalker)
-
-
-## Citation
-Thanks for citing our paper:
-
-```
-@article{Zhu2022PointCLIPV2,
-    title={PointCLIP V2: Prompting CLIP and GPT for Powerful 3D Open-world Learning},
-    author={Zhu, Xiangyang and Zhang, Renrui and He, Bowei and Guo, Ziyu and Zeng, Ziyao and Qin, Zipeng and Zhang, Shanghang and Gao, Peng},
-    journal={arXiv preprint arXiv:2211.11682},
-    year={2022},
-}
-```
-
-## Contact
-If you have any question about this project, please feel free to contact xiangyzhu6-c@my.cityu.edu.hk and zhangrenrui@pjlab.org.cn.
-
+## Run
+* source
+* 先让 VLM 老师去熟悉 ShapeNet 的长相，生成在这个新数据集上的 2D 语义伪标签 
+  python main_sfda.py `
+    --config-file configs/trainers/PointCLIPV2_ZS/vit_b16.yaml `
+    --dataset-config-file configs/datasets/pointda_shapenet.yaml `
+    --output-dir output/sfda_teacher_M_to_S `
+    --backbone ViT-B/16 `
+    DATASET.ROOT datasets/PointDA_data_ply/shapenet `
+    OPTIM.LR 0.0001 OPTIM.MAX_EPOCH 15
+* 蒸馏学生模型（输入源模型与伪标签）
+  python train_student.py `
+    --config-file configs/trainers/PointCLIPV2_ZS/vit_b16.yaml `
+    --dataset-config-file configs/datasets/pointda_shapenet.yaml `
+    --output-dir output/train_student_M_to_S `
+    --source-weight output/source_dgcnn_pointda10/dgcnn_source_best.pth `
+    --teacher-weight output/sfda_teacher_M_to_S/sfda_mlp_epoch_15.pth `
+    --epochs 150 `
+    --batch-size 16 `
+    --micro-batch 8 `
+    --threshold 0.75 `
+    DATASET.ROOT datasets/PointDA_data_ply/shapenet
+* 循环自蒸馏 
+  python train_self_distill.py `
+    --config-file configs/trainers/PointCLIPV2_ZS/vit_b16.yaml `
+    --dataset-config-file configs/datasets/pointda_shapenet.yaml `
+    --output-dir output/self_distill_M_to_S `
+    --teacher-weight output/train_student_M_to_S/best_student_dgcnn_finetuned.pth `
+    --epochs 150 `
+    --batch-size 16 `
+    --micro-batch 8 `
+    --threshold 0.80 `
+    DATASET.ROOT datasets/PointDA_data_ply/shapenet
