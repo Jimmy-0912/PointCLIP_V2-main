@@ -1,2 +1,0 @@
-Loading trainer: SFDA_PointCLIP
-Loading dataset: ScanObjectNN
